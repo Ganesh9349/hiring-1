@@ -11,7 +11,7 @@ pipeline{
               sh 'mvn clean package'
             }
         }
-        stage("tomcat"){
+        stage("tomcat deploy"){
             steps{
                 sshagent(['tomcat-creds']) {
                    // copy war
