@@ -17,8 +17,10 @@ pipeline{
             stage('docker push'){
                
                 steps{
-                    sh "docker -u bangodi -p *****"
+                    withCredentials([string(credentialsId: 'hub-p', variable: 'dubpwd')])
+                     sh "docker -u bangodi -p *****"
                     sh "docker push bangodi/hiring:0.0.2"
+                      }
                 }
              }
          }
